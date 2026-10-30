@@ -30,8 +30,8 @@ class ProjectController extends Controller
             $loc = $request->location;
             $query->where(function ($q) use ($loc) {
                 $q->where('location', 'like', "%{$loc}%")
-                  ->orWhere('title', 'like', "%{$loc}%")
-                  ->orWhere('sub_heading', 'like', "%{$loc}%");
+                  ->orWhere('name', 'like', "%{$loc}%")
+                  ->orWhere('description', 'like', "%{$loc}%");
             });
         }
 
@@ -39,17 +39,17 @@ class ProjectController extends Controller
         $sort = $request->get('sort', 'featured');
         switch ($sort) {
             case 'price-low':
-                $query->orderBy('price_start_num', 'asc');
+                $query->orderBy('starting_price', 'asc');
                 break;
             case 'price-high':
-                $query->orderBy('price_start_num', 'desc');
+                $query->orderBy('starting_price', 'desc');
                 break;
             case 'newest':
                 $query->orderBy('id', 'desc');
                 break;
             case 'featured':
             default:
-                $query->orderBy('is_featured', 'desc')->orderBy('id', 'asc');
+                $query->orderBy('sort_order', 'asc')->orderBy('id', 'asc');
                 break;
         }
 
@@ -93,8 +93,8 @@ class ProjectController extends Controller
             'available' => $project->units->where('status', 'available')->count(),
             'on_hold' => $project->units->where('status', 'on_hold')->count(),
             'sold' => $project->units->where('status', 'sold')->count(),
-            'min_price' => $project->units->min('price_num') ?? $project->price_start_num,
-            'max_price' => $project->units->max('price_num') ?? ($project->price_start_num * 1.5),
+            'min_price' => $project->units->min('total_price') ?? $project->starting_price,
+            'max_price' => $project->units->max('total_price') ?? ($project->starting_price * 1.5),
         ];
 
         $relatedProjects = Project::where('id', '!=', $project->id)

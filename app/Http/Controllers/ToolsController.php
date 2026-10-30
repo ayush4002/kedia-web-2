@@ -12,7 +12,7 @@ class ToolsController extends Controller
      */
     public function index()
     {
-        $projects = Project::select('id', 'title', 'slug', 'price_start_num', 'location')->get();
+        $projects = Project::all();
         return view('pages.tools', compact('projects'));
     }
 }

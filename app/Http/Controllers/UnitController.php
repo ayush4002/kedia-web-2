@@ -20,7 +20,7 @@ class UnitController extends Controller
 
         $pricing = $unit->computePricing();
 
-        $similarUnits = Unit::where('project_id', $unit->project_id)
+        $similarUnits = Unit::where('project_slug', $unit->project_slug)
             ->where('id', '!=', $unit->id)
             ->where('status', 'available')
             ->take(4)
