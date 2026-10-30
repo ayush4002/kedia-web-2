@@ -82,8 +82,7 @@
         }
         .animate-marquee {
             display: flex;
-            flex-wrap: nowrap;
-            width: max-content;
+            width: 200%;
             animation: marquee 35s linear infinite;
         }
         .animate-marquee:hover {

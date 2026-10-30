@@ -23,8 +23,8 @@ class AdminController extends Controller
         $soldUnits = Unit::where('status', 'sold')->count();
 
         // GMV & Financial KPIs
-        $totalGMV = Unit::whereIn('status', ['sold', 'on_hold'])->sum('total_price');
-        $tokenRevenue = Booking::sum('token_amount_paid');
+        $totalGMV = Unit::whereIn('status', ['sold', 'on_hold'])->sum('price_num');
+        $tokenRevenue = Booking::where('payment_status', 'paid')->sum('token_amount');
         $totalBookingsCount = Booking::count();
 
         // Filter units by project if requested
@@ -42,8 +42,7 @@ class AdminController extends Controller
             $search = $request->search;
             $unitsQuery->where(function ($q) use ($search) {
                 $q->where('unit_code', 'like', "%{$search}%")
-                  ->orWhere('unit_number', 'like', "%{$search}%")
-                  ->orWhere('configuration', 'like', "%{$search}%");
+                  ->orWhere('title', 'like', "%{$search}%");
             });
         }
 
@@ -102,8 +101,12 @@ class AdminController extends Controller
         ]);
 
         $unit = Unit::findOrFail($id);
-        $unit->total_price = (int) $request->price_num;
-        $unit->base_price = (int) ($request->price_num * 0.85);
+        $unit->price_num = $request->price_num;
+        if ($request->filled('price_formatted')) {
+            $unit->price_formatted = $request->price_formatted;
+        } else {
+            $unit->price_formatted = '₹ ' . number_format($request->price_num / 100000, 2) . ' Lakh';
+        }
         $unit->save();
 
         if ($request->ajax() || $request->wantsJson()) {
@@ -123,24 +126,21 @@ class AdminController extends Controller
     public function storeUnit(Request $request)
     {
         $validated = $request->validate([
-            'project_slug' => 'required|exists:projects,slug',
-            'unit_code' => 'required|string',
-            'unit_number' => 'nullable|string',
-            'unit_type' => 'required|string',
-            'configuration' => 'nullable|string',
+            'project_id' => 'required|exists:projects,id',
+            'unit_code' => 'required|string|unique:units,unit_code',
+            'title' => 'required|string',
+            'type' => 'required|string',
             'status' => 'required|in:available,on_hold,sold',
             'area_sqft' => 'required|numeric',
-            'area_sqyd' => 'nullable|numeric',
+            'plot_size_sqyd' => 'nullable|numeric',
             'bedrooms' => 'nullable|integer',
             'bathrooms' => 'nullable|integer',
             'facing' => 'nullable|string',
-            'total_price' => 'required|numeric',
-            'floor_level' => 'nullable|string',
+            'price_num' => 'required|numeric',
+            'floor' => 'nullable|string',
         ]);
 
-        $project = Project::where('slug', $validated['project_slug'])->first();
-        $validated['project_name'] = $project ? $project->name : 'Kedia Township';
-        $validated['base_price'] = (int) ($validated['total_price'] * 0.85);
+        $validated['price_formatted'] = '₹ ' . number_format($validated['price_num'] / 100000, 2) . ' Lakh';
 
         $unit = Unit::create($validated);
 
@@ -169,7 +169,7 @@ class AdminController extends Controller
         ]);
 
         $booking = Booking::findOrFail($id);
-        $booking->status = $request->booking_status;
+        $booking->booking_status = $request->booking_status;
         $booking->save();
 
         return back()->with('success', "Booking #{$booking->booking_id} status changed to {$booking->booking_status}.");
@@ -219,7 +219,7 @@ class AdminController extends Controller
      */
     public function exportCatalog()
     {
-        $units = Unit::with('project')->get();
+        $units = Unit::with('project:id,title,slug,location')->get();
         return response()->json($units, 200, ['Content-Disposition' => 'attachment; filename="kedia-inventory-catalog.json"']);
     }
 }

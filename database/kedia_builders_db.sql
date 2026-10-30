@@ -98,7 +98,7 @@ CREATE TABLE `units` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `units_project_unit_unique` (`project_slug`, `unit_code`),
+  UNIQUE KEY `units_unit_code_unique` (`unit_code`),
   KEY `units_project_slug_index` (`project_slug`),
   KEY `units_status_index` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
