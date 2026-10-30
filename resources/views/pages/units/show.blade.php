@@ -1,0 +1,210 @@
+@extends('layouts.app')
+
+@section('title', 'Unit ' . $unit->unit_code . ' | ' . ($unit->project->title ?? 'Kedia Builders'))
+
+@section('content')
+
+<section class="py-10 bg-[#FAF8F5]">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-xs font-mono text-[#0E1520]/60 mb-8">
+            <a href="{{ route('home') }}" class="hover:text-[#0E1520]">Home</a>
+            <span>/</span>
+            <a href="{{ route('projects.index') }}" class="hover:text-[#0E1520]">Projects</a>
+            <span>/</span>
+            @if($unit->project)
+                <a href="{{ route('projects.show', $unit->project->slug) }}" class="hover:text-[#0E1520]">{{ $unit->project->title }}</a>
+                <span>/</span>
+            @endif
+            <span class="font-bold text-[#0E1520]">Unit {{ $unit->unit_code }}</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <!-- Left Column: Gallery & Blueprint Floor Plan -->
+            <div class="lg:col-span-7 space-y-8">
+                
+                <!-- Main Unit Visual Card -->
+                <div class="rounded-3xl bg-[#0E1520] p-4 border border-[#0E1520]/10 shadow-2xl relative overflow-hidden">
+                    <div class="relative aspect-[16/10] rounded-2xl overflow-hidden bg-black/50">
+                        <img src="{{ $unit->project->hero_image ?? '/media/img/2021/04/Kedia-Nikunj-1-1920.webp' }}" alt="Unit {{ $unit->unit_code }}" class="w-full h-full object-cover">
+                        
+                        <!-- Floating Unit Badge -->
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-white font-mono text-xs flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full {{ $unit->status === 'available' ? 'bg-emerald-400' : 'bg-amber-400' }}"></span>
+                            <span class="uppercase tracking-wider font-bold">{{ $unit->unit_code }}</span>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider
+                                {{ $unit->status === 'available' ? 'bg-emerald-500 text-white' : ($unit->status === 'on_hold' ? 'bg-amber-400 text-[#0E1520]' : 'bg-slate-500 text-white') }}">
+                                {{ str_replace('_', ' ', $unit->status) }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architectural Floor Plan Preview (Blueprint Style) -->
+                <div class="rounded-3xl bg-[#09111C] p-8 border border-[#D4E845]/20 text-white shadow-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-[10px] font-mono uppercase tracking-widest text-[#D4E845]">Engineering Blueprint</div>
+                            <h3 class="font-serif text-2xl font-bold">2D Architectural Floor Layout</h3>
+                        </div>
+                        <span class="font-mono text-xs text-white/50">Scale 1:50</span>
+                    </div>
+
+                    <!-- Blueprint SVG Mock Drawing -->
+                    <div class="rounded-2xl border border-dashed border-[#D4E845]/30 p-8 bg-[#060B12] text-center my-4 relative" style="background-image: radial-gradient(rgba(212, 232, 69, 0.1) 1px, transparent 1px); background-size: 20px 20px;">
+                        <svg class="w-full max-w-md mx-auto h-48 stroke-[#D4E845]/70 fill-none" viewBox="0 0 400 200">
+                            <!-- Outer Boundary -->
+                            <rect x="20" y="20" width="360" height="160" stroke-width="2"></rect>
+                            <!-- Master Bedroom -->
+                            <rect x="20" y="20" width="160" height="100" stroke-width="1.5"></rect>
+                            <text x="50" y="70" fill="#D4E845" font-size="10" font-family="monospace">MASTER BEDROOM</text>
+                            <text x="65" y="85" fill="white" font-size="8" opacity="0.6">14' x 16'</text>
+                            <!-- Living Lounge -->
+                            <rect x="180" y="20" width="200" height="100" stroke-width="1.5"></rect>
+                            <text x="230" y="70" fill="#D4E845" font-size="10" font-family="monospace">LIVING &amp; DINING</text>
+                            <text x="255" y="85" fill="white" font-size="8" opacity="0.6">18' x 22'</text>
+                            <!-- Modular Kitchen -->
+                            <rect x="20" y="120" width="120" height="60" stroke-width="1.5"></rect>
+                            <text x="35" y="155" fill="#D4E845" font-size="9" font-family="monospace">KITCHEN</text>
+                            <!-- Vastu Deck -->
+                            <rect x="140" y="120" width="240" height="60" stroke-width="1.5"></rect>
+                            <text x="210" y="155" fill="#D4E845" font-size="9" font-family="monospace">PRIVATE COURTYARD &amp; LAWN</text>
+                        </svg>
+                        <div class="mt-2 font-mono text-[10px] text-white/50">Vedic Vastu Aligned with North-East Entrance</div>
+                    </div>
+                </div>
+
+                <!-- Specifications Matrix -->
+                <div class="bg-white rounded-3xl p-8 border border-[#0E1520]/10 shadow-sm space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-[#0E1520]">Unit Dossier &amp; Specifications</h3>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 font-mono text-xs">
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Property Type</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ ucfirst($unit->type) }}</div>
+                        </div>
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Super Built-Up Area</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ $unit->area_sqft }} SQ.FT</div>
+                        </div>
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Plot Size (Cadastral)</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ $unit->plot_size_sqyd ?? '125' }} SQ.YD</div>
+                        </div>
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Vastu Facing</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ $unit->facing ?? 'East Facing' }}</div>
+                        </div>
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Bedrooms / Baths</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ $unit->bedrooms ?? 3 }} BHK / {{ $unit->bathrooms ?? 3 }} Baths</div>
+                        </div>
+                        <div>
+                            <div class="text-[#0E1520]/50 text-[10px] uppercase">Floor Level</div>
+                            <div class="font-bold text-sm text-[#0E1520] mt-0.5">{{ $unit->floor ?? 'Ground + 1' }}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Live E-Commerce Cost Sheet & Booking Flow -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <div class="bg-white rounded-3xl p-8 border border-[#0E1520]/10 shadow-xl sticky top-28 space-y-6">
+                    
+                    <div>
+                        <div class="text-[10px] font-mono uppercase tracking-widest text-[#0E1520]/60">Transparent Valuation</div>
+                        <h2 class="font-serif text-3xl font-bold text-[#0E1520] mt-1">{{ $unit->title }}</h2>
+                        <div class="text-xs text-[#0E1520]/60 font-mono mt-0.5">Township: {{ $unit->project->title ?? 'Kedia Community' }}</div>
+                    </div>
+
+                    <!-- Price Breakup Card -->
+                    <div class="bg-[#FAF8F5] rounded-2xl p-5 border border-[#0E1520]/10 space-y-3 font-mono text-xs">
+                        <div class="flex items-center justify-between pb-2 border-b border-[#0E1520]/10">
+                            <span class="text-[#0E1520]/70">Base Agreement Value:</span>
+                            <span class="font-bold text-[#0E1520]">₹ {{ number_format($pricing['base_price']) }}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#0E1520]/70">GST (5% Residential):</span>
+                            <span class="font-semibold text-[#0E1520]">₹ {{ number_format($pricing['gst']) }}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#0E1520]/70">Corpus &amp; Maintenance (2.5%):</span>
+                            <span class="font-semibold text-[#0E1520]">₹ {{ number_format($pricing['maintenance']) }}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#0E1520]/70">Club &amp; Power Infra:</span>
+                            <span class="font-semibold text-[#0E1520]">₹ {{ number_format($pricing['club_charges']) }}</span>
+                        </div>
+                        <div class="flex items-center justify-between pb-2 border-b border-[#0E1520]/10">
+                            <span class="text-[#0E1520]/70">Govt Stamp Duty &amp; Registry (6%):</span>
+                            <span class="font-semibold text-[#0E1520]">₹ {{ number_format($pricing['stamp_duty_estimate']) }}</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-1 text-sm font-bold">
+                            <span class="text-[#0E1520]">Estimated All-Inclusive Cost:</span>
+                            <span class="text-[#0E1520] font-serif text-lg">₹ {{ number_format($pricing['grand_total']) }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Token Advance Required Today -->
+                    <div class="p-4 rounded-2xl bg-[#0E1520] text-white flex items-center justify-between">
+                        <div>
+                            <div class="text-[10px] font-mono text-[#D4E845] uppercase tracking-wider">Advance Token Online (5%)</div>
+                            <div class="text-xl font-bold font-serif">₹ {{ number_format($pricing['token_amount']) }}</div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                            Refundable 15 Days
+                        </span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3 pt-2">
+                        @if($unit->status === 'available')
+                            <a href="{{ route('booking.checkout', $unit->unit_code) }}" class="block w-full py-4 rounded-full bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] font-bold text-center text-xs uppercase tracking-wider transition-all shadow-lg transform hover:-translate-y-0.5">
+                                Book Unit Now (Test Token) &rarr;
+                            </a>
+                        @elseif($unit->status === 'on_hold')
+                            <button disabled class="w-full py-4 rounded-full bg-amber-100 text-amber-800 font-bold text-center text-xs uppercase tracking-wider cursor-not-allowed">
+                                Unit Under Holding
+                            </button>
+                        @else
+                            <button disabled class="w-full py-4 rounded-full bg-slate-200 text-slate-600 font-bold text-center text-xs uppercase tracking-wider cursor-not-allowed">
+                                Unit Sold Out
+                            </button>
+                        @endif
+
+                        <button type="button" onclick="openSiteVisitModal()" class="w-full py-3.5 rounded-full bg-[#FAF8F5] hover:bg-[#0E1520] text-[#0E1520] hover:text-white border border-[#0E1520]/15 font-bold text-center text-xs uppercase tracking-wider transition-colors">
+                            Schedule Private Site Visit
+                        </button>
+                    </div>
+
+                    <!-- Security & Transparency Assurances -->
+                    <div class="pt-4 border-t border-[#0E1520]/10 text-[11px] font-mono text-[#0E1520]/60 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="text-emerald-600">✓</span> Instant provisional reservation voucher generated
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-emerald-600">✓</span> Unit held exclusively for 72 hours upon token payment
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-emerald-600">✓</span> Direct relationship manager assigned within 15 minutes
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@endsection
