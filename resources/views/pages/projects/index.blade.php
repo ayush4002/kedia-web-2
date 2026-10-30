@@ -86,7 +86,7 @@
         @else
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($projects as $project)
-                    <div class="group rounded-3xl bg-white border border-[#0E1520]/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="group rounded-3xl bg-white border border-[#0E1520]/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative">
                         <div>
                             <!-- Arch Frame Cover -->
                             <div class="relative aspect-[16/10] overflow-hidden bg-[#0E1520]">
@@ -99,12 +99,15 @@
                                     </span>
                                 </div>
 
-                                <!-- Property Type Tag -->
-                                <div class="absolute top-4 right-4">
-                                    <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-black/60 backdrop-blur-md text-white">
-                                        {{ ucfirst($project->type) }}
-                                    </span>
-                                </div>
+                                <!-- Shortlist Heart Button -->
+                                <button type="button" 
+                                    onclick='addToShortlist({ id: "{{ $project->slug }}", title: "{{ $project->title }}", location: "{{ $project->location }}", price: "{{ $project->price_range }}", url: "{{ route('projects.show', $project->slug) }}" })'
+                                    class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 hover:bg-rose-500 text-white flex items-center justify-center transition-colors shadow"
+                                    title="Add to Shortlist">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
 
                                 <!-- RERA Code -->
                                 <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] font-mono text-white/90 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg">

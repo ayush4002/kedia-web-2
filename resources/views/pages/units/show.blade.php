@@ -7,17 +7,26 @@
 <section class="py-10 bg-[#FAF8F5]">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Breadcrumb -->
-        <div class="flex items-center gap-2 text-xs font-mono text-[#0E1520]/60 mb-8">
-            <a href="{{ route('home') }}" class="hover:text-[#0E1520]">Home</a>
-            <span>/</span>
-            <a href="{{ route('projects.index') }}" class="hover:text-[#0E1520]">Projects</a>
-            <span>/</span>
-            @if($unit->project)
-                <a href="{{ route('projects.show', $unit->project->slug) }}" class="hover:text-[#0E1520]">{{ $unit->project->title }}</a>
+        <!-- Breadcrumb & Shortlist Trigger -->
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-2 text-xs font-mono text-[#0E1520]/60">
+                <a href="{{ route('home') }}" class="hover:text-[#0E1520]">Home</a>
                 <span>/</span>
-            @endif
-            <span class="font-bold text-[#0E1520]">Unit {{ $unit->unit_code }}</span>
+                <a href="{{ route('projects.index') }}" class="hover:text-[#0E1520]">Projects</a>
+                <span>/</span>
+                @if($unit->project)
+                    <a href="{{ route('projects.show', $unit->project->slug) }}" class="hover:text-[#0E1520]">{{ $unit->project->title }}</a>
+                    <span>/</span>
+                @endif
+                <span class="font-bold text-[#0E1520]">Unit {{ $unit->unit_code }}</span>
+            </div>
+
+            <button type="button" 
+                onclick='addToShortlist({ id: "{{ $unit->unit_code }}", title: "{{ $unit->title }} ({{ $unit->unit_code }})", location: "{{ $unit->project->title ?? "Jaipur" }}", price: "{{ $unit->price_formatted }}", url: "{{ route("units.show", $unit->unit_code) }}" })'
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#0E1520]/15 text-xs font-mono font-semibold text-[#0E1520] hover:border-rose-400 hover:text-rose-600 transition-colors shadow-sm">
+                <span>♥</span>
+                <span>Save to Shortlist</span>
+            </button>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">

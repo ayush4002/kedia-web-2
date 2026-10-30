@@ -20,7 +20,7 @@
         <!-- Navigation Links -->
         <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-[#0E1520]">
             <!-- Projects Dropdown -->
-            <div class="relative group" x-data="{ open: false }">
+            <div class="relative group">
                 <a href="{{ route('projects.index') }}" class="flex items-center gap-1.5 py-2 hover:text-[#C8A24B] transition-colors">
                     <span>{{ __('messages.nav_projects') }}</span>
                     <svg class="w-3.5 h-3.5 text-[#0E1520]/50 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
                     <div class="text-[10px] font-mono tracking-widest uppercase text-[#D4E845] px-3 py-1.5">Signature Townships</div>
                     <a href="{{ route('projects.show', 'kedias-landmark') }}" class="block px-3 py-2 rounded-xl text-xs hover:bg-white/10 transition-colors">
                         <div class="font-semibold text-white">Kedia's Landmark</div>
-                        <div class="text-[11px] text-white/50">Ajmer Road · Villas & Plots</div>
+                        <div class="text-[11px] text-white/50">Ajmer Road · Villas &amp; Plots</div>
                     </a>
                     <a href="{{ route('projects.show', 'kedias-atulyam') }}" class="block px-3 py-2 rounded-xl text-xs hover:bg-white/10 transition-colors">
                         <div class="font-semibold text-white">Kedia's Atulyam</div>
@@ -40,11 +40,11 @@
                     </a>
                     <a href="{{ route('projects.show', 'kedias-tulsi') }}" class="block px-3 py-2 rounded-xl text-xs hover:bg-white/10 transition-colors">
                         <div class="font-semibold text-white">Kedia's Tulsi</div>
-                        <div class="text-[11px] text-white/50">Bani Park · 3 & 4 BHK Luxury</div>
+                        <div class="text-[11px] text-white/50">Bani Park · 3 &amp; 4 BHK Luxury</div>
                     </a>
                     <a href="{{ route('projects.show', 'ganpati-greens') }}" class="block px-3 py-2 rounded-xl text-xs hover:bg-white/10 transition-colors">
                         <div class="font-semibold text-white">Ganpati Greens</div>
-                        <div class="text-[11px] text-white/50">Eco-Friendly Villas & Enclave</div>
+                        <div class="text-[11px] text-white/50">Eco-Friendly Villas &amp; Enclave</div>
                     </a>
                     <div class="my-1 border-t border-white/10"></div>
                     <a href="{{ route('projects.index') }}" class="block px-3 py-2 text-center text-xs font-semibold text-[#D4E845] hover:underline">
@@ -64,8 +64,8 @@
         <div class="flex items-center gap-2 sm:gap-3">
             
             <!-- Admin Command Center Button -->
-            <a href="{{ route('admin.dashboard') }}" class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-[#0E1520]/5 hover:bg-[#0E1520] text-[#0E1520] hover:text-[#D4E845] border border-[#0E1520]/20 transition-all">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <a href="{{ route('admin.dashboard') }}" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-[#0E1520]/5 hover:bg-[#0E1520] text-[#0E1520] hover:text-[#D4E845] border border-[#0E1520]/20 transition-all">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span>ADMIN</span>
             </a>
 
@@ -87,12 +87,22 @@
 
             <!-- AI Concierge Modal Trigger -->
             <button type="button" onclick="openAiConciergeModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-[#0E1520]/15 hover:border-[#0E1520] text-[#0E1520] shadow-sm hover:shadow transition-all group">
-                <span class="text-amber-500 group-hover:rotate-12 transition-transform">&#10024;</span>
+                <span class="text-amber-500 group-hover:rotate-12 transition-transform">✨</span>
                 <span class="hidden md:inline">AI Concierge</span>
             </button>
 
+            <!-- Shortlist Wishlist Button -->
+            <button type="button" onclick="toggleShortlistDrawer()" class="relative p-2 rounded-full text-[#0E1520]/70 hover:text-rose-600 hover:bg-[#0E1520]/5 transition-colors" title="My Shortlist">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+                <span id="navShortlistCount" class="hidden absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-[#D4E845] text-[#0E1520] font-bold text-[9px] items-center justify-center font-mono">
+                    0
+                </span>
+            </button>
+
             <!-- Customer Portal / Patron Link -->
-            <a href="{{ route('customer.dashboard') }}" class="p-2 rounded-full text-[#0E1520]/70 hover:text-[#0E1520] hover:bg-[#0E1520]/5 transition-colors" title="Customer Dashboard & Holding Status">
+            <a href="{{ route('customer.dashboard') }}" class="p-2 rounded-full text-[#0E1520]/70 hover:text-[#0E1520] hover:bg-[#0E1520]/5 transition-colors" title="Customer Dashboard &amp; Holding Status">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                 </svg>

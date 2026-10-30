@@ -62,7 +62,7 @@
             background-size: 24px 24px;
         }
 
-        /* Custom scrollbar */
+        /* Clean standard scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -75,7 +75,7 @@
             border-radius: 4px;
         }
 
-        /* Marquee ticker animation */
+        /* Marquee ticker animation with smooth continuous scroll */
         @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -88,6 +88,17 @@
         .animate-marquee:hover {
             animation-play-state: paused;
         }
+
+        /* Subtly animated pulse dot */
+        .pulse-emerald {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
     </style>
 
     @stack('styles')
@@ -99,7 +110,7 @@
 
     <!-- Flash Alert Toasts -->
     @if(session('success'))
-        <div id="flashToast" class="fixed bottom-6 right-6 z-50 bg-[#0E1520] text-white border border-[#D4E845] px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce">
+        <div id="flashToast" class="fixed bottom-24 right-6 z-50 bg-[#0E1520] text-white border border-[#D4E845] px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 transition-all">
             <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
             <div class="text-xs font-medium">{{ session('success') }}</div>
             <button onclick="this.parentElement.remove()" class="text-white/50 hover:text-white">&times;</button>
@@ -107,7 +118,7 @@
     @endif
 
     @if(session('error'))
-        <div id="flashToast" class="fixed bottom-6 right-6 z-50 bg-red-950 text-white border border-red-500 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4">
+        <div id="flashToast" class="fixed bottom-24 right-6 z-50 bg-red-950 text-white border border-red-500 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4">
             <span class="w-3 h-3 rounded-full bg-red-500"></span>
             <div class="text-xs font-medium">{{ session('error') }}</div>
             <button onclick="this.parentElement.remove()" class="text-white/50 hover:text-white">&times;</button>
@@ -122,6 +133,57 @@
     <!-- Global Footer -->
     @include('components.footer')
 
+    <!-- Floating Quick Actions Dock (WhatsApp, Direct Call, Scroll Top) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+        
+        <!-- Back to Top Button -->
+        <button type="button" id="btnScrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden w-11 h-11 rounded-full bg-white text-[#0E1520] border border-[#0E1520]/20 shadow-lg items-center justify-center text-sm font-bold hover:bg-[#FAF8F5] transition-all transform hover:-translate-y-1" title="Scroll to Top">
+            ↑
+        </button>
+
+        <!-- Quick WhatsApp Button -->
+        <a href="https://wa.me/919829184872?text=Hello%20Kedia%20Builders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Jaipur%20projects." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#25D366] text-white font-mono text-xs font-bold shadow-xl hover:bg-[#20ba59] transition-all transform hover:-translate-y-0.5 group" title="Chat on WhatsApp">
+            <span class="w-2.5 h-2.5 rounded-full bg-white pulse-emerald"></span>
+            <span class="hidden sm:inline">WhatsApp Desk</span>
+            <span class="text-sm">💬</span>
+        </a>
+
+        <!-- Quick Call Button -->
+        <a href="tel:+918302500500" class="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0E1520] text-white border border-white/20 font-mono text-xs font-bold shadow-xl hover:bg-[#162132] transition-all transform hover:-translate-y-0.5" title="Call Kedia Headquarters">
+            <span class="text-[#D4E845]">📞</span>
+            <span class="hidden sm:inline">+91 8302 500 500</span>
+        </a>
+    </div>
+
+    <!-- Shortlist Drawer Component (Persisted in localStorage) -->
+    <div id="shortlistDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white border-l border-[#0E1520]/15 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+        <div class="p-6 border-b border-[#0E1520]/10 flex items-center justify-between bg-[#FAF8F5]">
+            <div class="flex items-center gap-2">
+                <span class="text-rose-500 text-lg">♥</span>
+                <h3 class="font-serif text-xl font-bold text-[#0E1520]">My Shortlisted Units</h3>
+            </div>
+            <button type="button" onclick="toggleShortlistDrawer()" class="p-2 text-gray-500 hover:text-black text-xl">
+                &times;
+            </button>
+        </div>
+
+        <div id="shortlistItemsContainer" class="p-6 flex-grow overflow-y-auto space-y-4">
+            <!-- Dynamic units rendered via JS -->
+            <div class="text-center py-12 text-[#0E1520]/50 font-mono text-xs" id="emptyShortlistNotice">
+                Your shortlist is currently empty.<br>Click the heart icon on any unit or project to save it here for comparison.
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-[#0E1520]/10 bg-[#FAF8F5] space-y-3">
+            <button type="button" onclick="openSiteVisitModal()" class="w-full py-3 rounded-full bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] font-bold text-xs uppercase tracking-wider shadow">
+                Schedule Site Visit for Shortlist &rarr;
+            </button>
+            <button type="button" onclick="clearShortlist()" class="w-full py-2 text-center text-xs text-rose-600 hover:underline font-mono">
+                Clear Shortlist
+            </button>
+        </div>
+    </div>
+
     <!-- Global Schedule Site Visit Modal -->
     <div id="siteVisitModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-[#0E1520] border border-[#D4E845]/30 rounded-3xl p-6 sm:p-8 max-w-md w-full text-white shadow-2xl relative" id="siteVisitCard">
@@ -135,18 +197,18 @@
             <h3 class="font-serif text-2xl font-bold text-white mb-2">{{ __('messages.schedule_title') }}</h3>
             <p class="text-xs text-white/60 mb-6">{{ __('messages.schedule_desc') }}</p>
 
-            <form action="{{ route('leads.store') }}" method="POST" class="space-y-4">
+            <form action="{{ route('leads.store') }}" method="POST" class="space-y-4 font-mono text-xs">
                 @csrf
                 <div>
-                    <label class="block text-[11px] font-mono text-white/70 uppercase mb-1">Full Name *</label>
+                    <label class="block text-white/70 uppercase mb-1">Full Legal Name *</label>
                     <input type="text" name="name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-[#D4E845] focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-mono text-white/70 uppercase mb-1">Phone Number (WhatsApp) *</label>
+                    <label class="block text-white/70 uppercase mb-1">Phone Number (WhatsApp) *</label>
                     <input type="tel" name="phone" required placeholder="+91 98290 00000" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-[#D4E845] focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-mono text-white/70 uppercase mb-1">Select Project</label>
+                    <label class="block text-white/70 uppercase mb-1">Select Project</label>
                     <select name="project_name" class="w-full px-4 py-2.5 rounded-xl bg-[#162132] border border-white/10 text-white text-sm focus:border-[#D4E845] focus:outline-none">
                         <option value="Kedia's Landmark">Kedia's Landmark (Ajmer Road)</option>
                         <option value="Kedia's Atulyam">Kedia's Atulyam (Sirsi Road)</option>
@@ -158,11 +220,11 @@
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[11px] font-mono text-white/70 uppercase mb-1">Date</label>
+                        <label class="block text-white/70 uppercase mb-1">Date</label>
                         <input type="date" name="preferred_date" value="{{ date('Y-m-d', strtotime('+1 day')) }}" class="w-full px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:border-[#D4E845] focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-[11px] font-mono text-white/70 uppercase mb-1">Slot</label>
+                        <label class="block text-white/70 uppercase mb-1">Slot</label>
                         <select name="time_slot" class="w-full px-3 py-2.5 rounded-xl bg-[#162132] border border-white/10 text-white text-xs focus:border-[#D4E845] focus:outline-none">
                             <option>10:00 AM - 12:00 PM</option>
                             <option>12:00 PM - 02:00 PM</option>
@@ -192,7 +254,7 @@
             </button>
 
             <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D4E845] mb-1">
-                <span>&#10024; Kedia AI Concierge</span>
+                <span>✨ Kedia AI Concierge</span>
                 <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 <span class="text-white/60">Live Assistant</span>
             </div>
@@ -231,22 +293,37 @@
 
     <!-- Scripts -->
     <script>
+        // Scroll Top visibility
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('btnScrollTop');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('hidden');
+                    btn.classList.add('flex');
+                } else {
+                    btn.classList.add('hidden');
+                    btn.classList.remove('flex');
+                }
+            }
+        });
+
+        // Modals
         function openSiteVisitModal() {
             const modal = document.getElementById('siteVisitModal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
+            if (modal) modal.classList.remove('opacity-0', 'pointer-events-none');
         }
         function closeSiteVisitModal() {
             const modal = document.getElementById('siteVisitModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
+            if (modal) modal.classList.add('opacity-0', 'pointer-events-none');
         }
 
         function openAiConciergeModal() {
             const modal = document.getElementById('aiConciergeModal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
+            if (modal) modal.classList.remove('opacity-0', 'pointer-events-none');
         }
         function closeAiConciergeModal() {
             const modal = document.getElementById('aiConciergeModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
+            if (modal) modal.classList.add('opacity-0', 'pointer-events-none');
         }
 
         function filterByBudget(range) {
@@ -292,6 +369,81 @@
                 link.href = "/projects/kedias-tulsi";
             }
         }
+
+        // Shortlist Logic
+        function toggleShortlistDrawer() {
+            const drawer = document.getElementById('shortlistDrawer');
+            if (drawer) {
+                drawer.classList.toggle('translate-x-full');
+            }
+        }
+
+        function getShortlist() {
+            try {
+                return JSON.parse(localStorage.getItem('kedia_shortlist') || '[]');
+            } catch(e) {
+                return [];
+            }
+        }
+
+        function updateShortlistUI() {
+            const list = getShortlist();
+            const badge = document.getElementById('navShortlistCount');
+            if (badge) {
+                badge.innerText = list.length;
+                badge.style.display = list.length > 0 ? 'flex' : 'none';
+            }
+
+            const container = document.getElementById('shortlistItemsContainer');
+            const emptyNotice = document.getElementById('emptyShortlistNotice');
+            if (container) {
+                container.innerHTML = '';
+                if (list.length === 0) {
+                    if (emptyNotice) emptyNotice.style.display = 'block';
+                    container.appendChild(emptyNotice);
+                } else {
+                    if (emptyNotice) emptyNotice.style.display = 'none';
+                    list.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'p-4 rounded-2xl bg-[#FAF8F5] border border-[#0E1520]/10 flex items-center justify-between font-mono text-xs';
+                        div.innerHTML = `
+                            <div>
+                                <div class="font-bold text-[#0E1520]">${item.title}</div>
+                                <div class="text-[10px] text-[#0E1520]/60">${item.location || 'Jaipur'} · ${item.price || ''}</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="${item.url}" class="px-3 py-1 rounded-full bg-[#0E1520] text-white text-[10px] font-bold">View</a>
+                                <button onclick="removeFromShortlist('${item.id}')" class="text-rose-500 hover:text-rose-700 text-sm font-bold">&times;</button>
+                            </div>
+                        `;
+                        container.appendChild(div);
+                    });
+                }
+            }
+        }
+
+        function addToShortlist(item) {
+            let list = getShortlist();
+            if (!list.find(x => x.id === item.id)) {
+                list.push(item);
+                localStorage.setItem('kedia_shortlist', JSON.stringify(list));
+                updateShortlistUI();
+            }
+            toggleShortlistDrawer();
+        }
+
+        function removeFromShortlist(id) {
+            let list = getShortlist().filter(x => x.id !== id);
+            localStorage.setItem('kedia_shortlist', JSON.stringify(list));
+            updateShortlistUI();
+        }
+
+        function clearShortlist() {
+            localStorage.removeItem('kedia_shortlist');
+            updateShortlistUI();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateShortlistUI);
     </script>
 
     @stack('scripts')
