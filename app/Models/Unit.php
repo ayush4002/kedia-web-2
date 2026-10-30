@@ -61,26 +61,63 @@ class Unit extends Model
         return $this->hasMany(Booking::class, 'unit_code', 'unit_code');
     }
 
-    /**
-     * Recompute statutory fees and total price whenever base price updates
-     */
-    public static function computePricing(int $basePrice, string $unitType = 'Villa'): array
+    // Accessor aliases for view compatibility
+    public function getTitleAttribute(): string
     {
-        $idc = (int) round($basePrice * 0.04);
-        $club = ($unitType === 'Villa') ? 75000 : 35000;
-        $parking = ($unitType === 'Villa') ? 150000 : 0;
-        $gst = (int) round(($basePrice + $idc) * 0.05);
-        $reg = (int) round($basePrice * 0.06);
-        $total = $basePrice + $idc + $club + $parking + $gst + reg;
+        return $this->configuration ?: ($this->bedrooms . ' BHK ' . ($this->unit_type ?? 'Villa'));
+    }
+
+    public function getPriceFormattedAttribute(): string
+    {
+        $price = $this->total_price ?: $this->base_price;
+        return '₹ ' . number_format($price / 100000, 2) . ' Lakh';
+    }
+
+    public function getPriceNumAttribute(): int
+    {
+        return (int) ($this->total_price ?: $this->base_price);
+    }
+
+    public function getPlotSizeSqydAttribute(): float
+    {
+        return (float) $this->area_sqyd;
+    }
+
+    public function getFloorAttribute(): string
+    {
+        return $this->floor_level ?? 'Ground';
+    }
+
+    public function getTypeAttribute(): string
+    {
+        return $this->unit_type ?? 'Villa';
+    }
+
+    /**
+     * Compute full itemized pricing breakdown with statutory dues and token
+     */
+    public function computePricing(?int $basePrice = null): array
+    {
+        $base = $basePrice ?? ($this->base_price ?: 3500000);
+        $type = $this->unit_type ?? 'Villa';
+
+        $idc = (int) round($base * 0.04);
+        $club = ($type === 'Villa') ? 75000 : 35000;
+        $maintenance = (int) round($base * 0.025);
+        $gst = (int) round($base * 0.05);
+        $reg = (int) round($base * 0.06);
+        $total = $base + $idc + $club + $maintenance + $gst + $reg;
+        $token = (int) round($total * 0.05);
 
         return [
-            'base_price' => $basePrice,
+            'base_price' => $base,
             'development_charges' => $idc,
-            'club_membership' => $club,
-            'parking_charges' => $parking,
+            'club_charges' => $club,
+            'maintenance' => $maintenance,
             'gst' => $gst,
-            'stamp_duty_registration' => $reg,
-            'total_price' => $total,
+            'stamp_duty_estimate' => $reg,
+            'grand_total' => $total,
+            'token_amount' => $token,
         ];
     }
 }

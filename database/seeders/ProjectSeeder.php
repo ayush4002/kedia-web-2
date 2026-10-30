@@ -4,13 +4,13 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Project;
 
 class ProjectSeeder extends Seeder
 {
     public function run(): void
     {
-        $projects = [
+        $json = <<<'JSON'
+[
     {
         "slug": "kedias-atulyam",
         "name": "Kedia's Atulyam",
@@ -475,7 +475,10 @@ class ProjectSeeder extends Seeder
         "created_at": "2026-10-30 10:44:33",
         "updated_at": "2026-10-30 10:44:33"
     }
-];
+]
+JSON;
+
+        $projects = json_decode($json, true);
 
         foreach ($projects as $item) {
             DB::table('projects')->updateOrInsert(['slug' => $item['slug']], $item);

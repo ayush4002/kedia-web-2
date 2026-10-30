@@ -4,13 +4,13 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Unit;
 
 class UnitSeeder extends Seeder
 {
     public function run(): void
     {
-        $units = [
+        $json = <<<'JSON'
+[
     {
         "unit_code": "KED-Plot11",
         "unit_number": "Plot 11",
@@ -3371,7 +3371,10 @@ class UnitSeeder extends Seeder
         "created_at": "2026-10-30 10:44:33",
         "updated_at": "2026-10-30 10:44:33"
     }
-];
+]
+JSON;
+
+        $units = json_decode($json, true);
 
         foreach ($units as $u) {
             DB::table('units')->updateOrInsert(['unit_code' => $u['unit_code']], $u);

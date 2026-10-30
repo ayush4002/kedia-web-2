@@ -1,7 +1,7 @@
 # Kedia Builders & Colonizers — The Jaipur Blueprint
 ### Pure PHP & Laravel 11/10 MVC Real Estate E-Commerce Platform
 
-A high-performance, architectural real estate e-commerce platform for **Kedia Builders & Colonizers** (Jaipur, Rajasthan — Est. 1980). Built using pure **PHP** and **Laravel MVC** (Blade templates, Eloquent Models, Migrations, Seeders, RESTful Routes, and Tailwind CSS).
+A high-performance, architectural real estate e-commerce platform for **Kedia Builders & Colonizers** (Jaipur, Rajasthan — Est. 1980). Built using pure **PHP** and **Laravel MVC** (Blade templates, Eloquent Models, MySQL Migrations, Seeders, RESTful Routes, and Tailwind CSS).
 
 ---
 
@@ -13,8 +13,9 @@ A high-performance, architectural real estate e-commerce platform for **Kedia Bu
 - **Admin E-Commerce Command Center (`/admin`)**: Real-time GMV tracking, token revenue collections, live inventory toggle (`available`, `on_hold`, `sold`), inline price editing, order management, and CSV/JSON catalog exports.
 - **Patron Dashboard (`/dashboard`)**: Tracking of provisional holding vouchers, 5-stage construction-linked milestone payments, and JDA/RERA legal repositories.
 - **Bilingual Localization (`EN` / `हिन्दी`)**: Instant session-based language switcher (`lang/en/messages.php` and `lang/hi/messages.php`).
-- **16 Authentic Kedia Townships**: Full database seeders for Kedia's Landmark, Kedia's Atulyam, Kedia's Tulsi, Ganpati Greens, Nikunj Villas, Kedia Aravali, etc.
+- **16 Authentic Kedia Townships**: Seeders and SQL database dump for Kedia's Landmark, Kedia's Atulyam, Kedia's Tulsi, Ganpati Greens, Nikunj Villas, Kedia Aravali, etc.
 - **Executive Leadership**: Authentically represents Founder & Chairman Mr. Rajendra Kedia, Director Mr. Saurabh Kedia, and CEO Mr. Gaurav Kedia.
+- **Pure SQL Database (MySQL)**: Comes with ready-to-import `database/kedia_builders_db.sql` with full schema and all seeded records, plus Laravel Eloquent migrations and seeders.
 
 ---
 
@@ -42,6 +43,7 @@ A high-performance, architectural real estate e-commerce platform for **Kedia Bu
 │       ├── Booking.php                        # Casts for payment schedules & cost sheets
 │       └── SiteVisitLead.php                  # Inbound lead tracking
 ├── database/
+│   ├── kedia_builders_db.sql                  # Complete MySQL database dump (Schema + 139 inserts)
 │   ├── migrations/
 │   │   ├── 2026_01_01_000001_create_projects_table.php
 │   │   ├── 2026_01_01_000002_create_units_table.php
@@ -89,10 +91,11 @@ A high-performance, architectural real estate e-commerce platform for **Kedia Bu
 
 ---
 
-## 🚀 Installation & Local Setup
+## 🚀 Installation & MySQL Setup
 
 ### Requirements
-- **PHP** >= 8.2 with SQLite / MySQL / PostgreSQL extensions
+- **PHP** >= 8.2 with `pdo_mysql` extension
+- **MySQL** / MariaDB >= 8.0 (e.g. XAMPP, Laragon, Docker, or native MySQL server)
 - **Composer** (PHP Package Manager)
 
 ### Step 1: Clone Repository
@@ -111,10 +114,27 @@ composer install
 cp .env.example .env
 php artisan key:generate
 ```
+Ensure your MySQL credentials match in `.env`:
+```ini
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=kedia_builders_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-### Step 4: Run Migrations & Seeders
+### Step 4: Setup Database (Choose Option A or Option B)
+
+#### Option A: Direct SQL Dump Import (Instant)
+Import the provided MySQL dump file via command line or phpMyAdmin:
 ```bash
-# Migrates database and seeds 16 projects and 120 inventory units
+mysql -u root -p kedia_builders_db < database/kedia_builders_db.sql
+```
+
+#### Option B: Laravel Artisan Migrations & Seeders
+```bash
+# Creates tables and seeds all 16 projects and 120 inventory units
 php artisan migrate --seed
 ```
 
