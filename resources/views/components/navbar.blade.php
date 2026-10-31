@@ -2,13 +2,13 @@
     $currentLocale = app()->getLocale();
 @endphp
 
-<header class="sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#0E1520]/10 transition-all duration-300">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+<header class="sticky top-0 z-50 bg-[#FAF8F5]/98 backdrop-blur-md border-b border-[#0E1520]/10 transition-all duration-300">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
         
         <!-- Brand & Heritage Tag -->
-        <div class="flex items-center gap-4 flex-shrink-0">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <img src="/assets/logo-navy.png" alt="Kedia Builders & Colonizers" class="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='/assets/logo-white.png'; this.classList.add('invert');">
+        <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 group">
+                <img src="/assets/logo-navy.png" alt="Kedia Builders & Colonizers" class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='/assets/logo-white.png'; this.classList.add('invert');">
             </a>
             <div class="hidden xl:flex items-center gap-2 pl-3 border-l border-[#0E1520]/20 font-mono text-[11px] tracking-widest text-[#0E1520]/60 uppercase">
                 <span>EST. 1980</span>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-[#0E1520]">
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-[#0E1520]">
             <!-- Projects Dropdown -->
             <div class="relative group">
                 <a href="{{ route('projects.index') }}" class="flex items-center gap-1.5 py-2 hover:text-[#C8A24B] transition-colors">
@@ -61,34 +61,28 @@
         </nav>
 
         <!-- Right Utilities & Action CTAs -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-1.5 sm:gap-2.5">
             
             <!-- Admin Command Center Button -->
-            <a href="{{ route('admin.dashboard') }}" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-[#0E1520]/5 hover:bg-[#0E1520] text-[#0E1520] hover:text-[#D4E845] border border-[#0E1520]/20 transition-all">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <a href="{{ route('admin.dashboard') }}" class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-[#0E1520]/5 hover:bg-[#0E1520] text-[#0E1520] hover:text-[#D4E845] border border-[#0E1520]/20 transition-all">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span>ADMIN</span>
             </a>
 
-            <!-- Direct Call -->
-            <a href="tel:+918302500500" class="hidden 2xl:flex flex-col text-right leading-tight hover:text-[#C8A24B] transition-colors">
-                <span class="text-[10px] font-mono text-[#0E1520]/50 uppercase tracking-wider">Call Us</span>
-                <span class="text-xs font-bold text-[#0E1520] tracking-tight">+91 8302 500 500</span>
-            </a>
-
             <!-- Language Switcher Toggle -->
-            <div class="flex items-center bg-[#0E1520]/5 p-0.5 rounded-full border border-[#0E1520]/10">
-                <a href="{{ route('language.switch', 'en') }}" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all {{ $currentLocale === 'en' ? 'bg-[#0E1520] text-white shadow-sm' : 'text-[#0E1520]/60 hover:text-[#0E1520]' }}">
+            <div class="flex items-center bg-[#0E1520]/5 p-0.5 rounded-full border border-[#0E1520]/10 text-xs">
+                <a href="{{ route('language.switch', 'en') }}" class="px-2 py-0.5 font-semibold rounded-full transition-all {{ $currentLocale === 'en' ? 'bg-[#0E1520] text-white shadow-sm' : 'text-[#0E1520]/60 hover:text-[#0E1520]' }}">
                     EN
                 </a>
-                <a href="{{ route('language.switch', 'hi') }}" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all {{ $currentLocale === 'hi' ? 'bg-[#0E1520] text-[#D4E845] shadow-sm' : 'text-[#0E1520]/60 hover:text-[#0E1520]' }}">
+                <a href="{{ route('language.switch', 'hi') }}" class="px-2 py-0.5 font-semibold rounded-full transition-all {{ $currentLocale === 'hi' ? 'bg-[#0E1520] text-[#D4E845] shadow-sm' : 'text-[#0E1520]/60 hover:text-[#0E1520]' }}">
                     हिन्दी
                 </a>
             </div>
 
             <!-- AI Concierge Modal Trigger -->
-            <button type="button" onclick="openAiConciergeModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-[#0E1520]/15 hover:border-[#0E1520] text-[#0E1520] shadow-sm hover:shadow transition-all group">
+            <button type="button" onclick="openAiConciergeModal()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-[#0E1520]/15 hover:border-[#0E1520] text-[#0E1520] shadow-sm hover:shadow transition-all group">
                 <span class="text-amber-500 group-hover:rotate-12 transition-transform">✨</span>
-                <span class="hidden md:inline">AI Concierge</span>
+                <span>AI Concierge</span>
             </button>
 
             <!-- Shortlist Wishlist Button -->
@@ -108,16 +102,23 @@
                 </svg>
             </a>
 
-            <!-- Schedule a Visit Primary Button (Spaciaz Lime Pill) -->
-            <button type="button" onclick="openSiteVisitModal()" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                <svg class="w-4 h-4 text-[#0E1520]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Schedule a Visit Primary Button Desktop -->
+            <button type="button" onclick="openSiteVisitModal()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] shadow-sm hover:shadow transition-all whitespace-nowrap">
+                <svg class="w-3.5 h-3.5 text-[#0E1520]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
                 <span>{{ __('messages.btn_schedule_visit') }}</span>
             </button>
 
+            <!-- Schedule Visit Icon Button Mobile -->
+            <button type="button" onclick="openSiteVisitModal()" class="sm:hidden p-2 rounded-full bg-[#D4E845] text-[#0E1520] shadow-sm" title="Schedule Visit">
+                <svg class="w-4 h-4 text-[#0E1520]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </button>
+
             <!-- Mobile Menu Toggle Button -->
-            <button type="button" onclick="toggleMobileNav()" class="lg:hidden p-2 text-[#0E1520] hover:bg-black/5 rounded-lg">
+            <button type="button" onclick="toggleMobileNav()" class="lg:hidden p-2 text-[#0E1520] hover:bg-black/5 rounded-lg" aria-label="Toggle Navigation">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>

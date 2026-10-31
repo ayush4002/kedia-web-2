@@ -22,7 +22,8 @@ class ProjectController extends Controller
 
         // Filter by Property Type (villa, apartment, plot, commercial, all)
         if ($request->filled('type') && $request->type !== 'all') {
-            $query->where('type', $request->type);
+            $t = $request->type;
+            $query->where('type', 'like', "%{$t}%");
         }
 
         // Filter by Location / Search query
@@ -65,9 +66,9 @@ class ProjectController extends Controller
             'total' => Project::count(),
             'ongoing' => Project::where('status', 'ongoing')->count(),
             'completed' => Project::where('status', 'completed')->count(),
-            'villas' => Project::where('type', 'villa')->count(),
-            'apartments' => Project::where('type', 'apartment')->count(),
-            'plots' => Project::where('type', 'plot')->count(),
+            'villas' => Project::where('type', 'like', '%villa%')->count(),
+            'apartments' => Project::where('type', 'like', '%apartment%')->count(),
+            'plots' => Project::where('type', 'like', '%plot%')->count(),
         ];
 
         return view('pages.projects.index', compact('projects', 'stats'));

@@ -73,7 +73,13 @@ class Project extends Model
 
     public function getPriceRangeAttribute(): string
     {
-        return $this->price_label ?? ('Starting at ₹ ' . number_format($this->starting_price / 100000, 2) . ' Lakh');
+        if (!empty($this->starting_price) && $this->starting_price > 0) {
+            return 'Starting at ₹ ' . number_format($this->starting_price / 100000, 2) . ' Lakh*';
+        }
+        if (!empty($this->price_label)) {
+            return preg_replace('/(\?{1,3}|₹)/u', '₹ ', $this->price_label);
+        }
+        return 'Price on Request';
     }
 
     public function getPriceStartNumAttribute(): int

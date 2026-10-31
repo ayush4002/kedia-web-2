@@ -12,6 +12,7 @@ class LanguageController extends Controller
     public function switch($locale, Request $request)
     {
         if (in_array($locale, ['en', 'hi'])) {
+            $request->session()->put('locale', $locale);
             $request->session()->put('app_locale', $locale);
             app()->setLocale($locale);
         }

@@ -2,6 +2,7 @@
 
 return [
     // Navigation
+    'nav_home' => 'Home',
     'nav_projects' => 'Projects',
     'nav_residential' => 'Residential Plots',
     'nav_villas' => 'Luxury Villas',
@@ -14,21 +15,32 @@ return [
     'nav_contact' => 'Contact',
     'nav_admin' => 'Admin',
     'nav_schedule_visit' => 'Schedule Visit',
+    'btn_schedule_visit' => 'Schedule Visit',
     'nav_patron' => 'Patron Portal',
     'nav_call_us' => 'Call Us',
     'nav_ai_concierge' => 'AI Concierge',
 
     // Hero
+    'hero_tag' => 'Since 1980 · Jaipur Heritage',
     'hero_eyebrow' => 'Since 1980 · Jaipur Heritage',
+    'hero_headline' => 'A new standard of excellence',
     'hero_title_line1' => 'A new standard of',
     'hero_title_line2' => 'excellence',
+    'hero_sub' => 'The largest privately held real estate investors and managers in Jaipur, Rajasthan. Over four decades of crafting master-planned townships, boutique luxury villas, and high-value investment corridors.',
     'hero_subtitle' => 'The largest privately held real estate investors and managers in Jaipur, Rajasthan. Over four decades of crafting master-planned townships, boutique luxury villas, and high-value investment corridors.',
+    'btn_explore_projects' => 'Explore Projects',
     'hero_cta_projects' => 'View All Projects',
     'hero_years_badge' => 'years of experiences',
     'hero_drone_tour' => 'Watch Drone Tour',
     'hero_2min' => '2 min preview',
 
     // Search Bar
+    'search_status' => 'Status',
+    'filter_all' => 'All Status',
+    'status_ongoing' => 'Under Construction',
+    'status_completed' => 'Ready to Move',
+    'search_location' => 'Location',
+    'search_type' => 'Property Type',
     'search_placeholder' => 'Search by project, location, or unit...',
     'search_any_location' => 'Any Location / Corridor',
     'search_any_type' => 'Any Property Type',
@@ -37,7 +49,11 @@ return [
     'search_plots' => 'Residential Plots',
     'search_villas' => 'Boutique Villas',
     'search_apartments' => 'Flats & Apartments',
-    'search_cta' => 'Search Catalog',
+    'search_cta' => 'Search',
+
+    // Section Titles
+    'sec_who_we_are' => 'Who We Are',
+    'sec_landmark_title' => 'We develop landmark real estate projects',
 
     // 3 Cards
     'card1_num' => '01.',
@@ -95,6 +111,10 @@ return [
     'starting_from' => 'Starting from',
     'all_inclusive_est' => 'All-Inclusive Estimate',
 
+    // Schedule Modal
+    'schedule_title' => 'Schedule a VIP Site Visit',
+    'schedule_desc' => 'Experience our master-planned townships in person with complimentary Jaipur chauffeur pickup.',
+
     // Leadership
     'leadership_eyebrow' => 'Custodians of Trust',
     'leadership_title' => 'Executive Leadership',
@@ -107,9 +127,11 @@ return [
     'prefooter_cta_inventory' => 'Explore Live Inventory',
 
     // Footer
+    'footer_about' => 'Pioneering the Jaipur real estate horizon since 1980. 200+ completed developments covering residential plotting, turnkey luxury villas, and boutique apartments.',
     'footer_about_text' => 'Pioneering the Jaipur real estate horizon since 1980. 200+ completed developments covering residential plotting, turnkey luxury villas, and boutique apartments.',
     'footer_quick_links' => 'Quick Portals',
     'footer_projects' => 'Featured Developments',
     'footer_headquarters' => 'Jaipur Headquarters',
-    'footer_disclaimer' => 'RERA Rajasthan Sanctioned Schemes. All project titles and sanctioned layouts are approved by the Jaipur Development Authority (JDA).'
+    'footer_disclaimer' => 'RERA Rajasthan Sanctioned Schemes. All project titles and sanctioned layouts are approved by the Jaipur Development Authority (JDA).',
+    'all_rights_reserved' => 'All rights reserved.'
 ];
