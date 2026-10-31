@@ -5,22 +5,22 @@
 @section('content')
 
 <!-- 1. HERO SECTION (Spaciaz Split Architectural Arch Layout) -->
-<section class="relative pt-6 sm:pt-10 pb-16 sm:pb-24 overflow-hidden bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<section class="relative min-h-[calc(100vh-5rem)] lg:h-[calc(100vh-5rem)] flex items-center py-6 lg:py-0 overflow-hidden bg-[#FAF8F5]">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
             
             <!-- Left Hero Arch Frame with Drone / Render Image -->
-            <div class="lg:col-span-5 order-2 lg:order-1">
-                <div class="relative mx-auto max-w-md lg:max-w-none group">
+            <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+                <div class="relative w-full max-w-sm sm:max-w-md lg:max-w-none group flex justify-center">
                     <!-- Architectural Arch Shape -->
-                    <div class="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white aspect-[4/5] bg-[#0E1520]">
+                    <div class="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl border-4 border-white aspect-[4/5] max-h-[min(500px,calc(100vh-10rem))] w-auto bg-[#0E1520]">
                         <img src="/media/img/2021/04/Kedia-Nikunj-1-1920.webp" 
                              alt="Kedia Luxury Architecture Jaipur" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                              onerror="this.src='/assets/og-default.jpg';">
                         
                         <!-- Floating Glass Badge -->
-                        <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#0E1520]/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
+                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0E1520]/85 backdrop-blur-md border border-white/10 text-white flex items-center justify-between">
                             <div>
                                 <div class="text-[10px] font-mono text-[#D4E845] uppercase tracking-wider">Live Development</div>
                                 <div class="text-sm font-bold">Nikunj Villas · Sirsi Road</div>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Right Hero Typography & Headline -->
-            <div class="lg:col-span-7 order-1 lg:order-2 space-y-8">
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-4 lg:space-y-4 xl:space-y-6">
                 
                 <div class="space-y-4">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1520]/5 border border-[#0E1520]/10 text-xs font-mono uppercase tracking-wider text-[#0E1520]">
@@ -42,41 +42,41 @@
                         <span>{{ __('messages.hero_tag') }}</span>
                     </div>
 
-                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0E1520] leading-[1.08]">
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-[2.65rem] xl:text-[3.4rem] 2xl:text-[4rem] font-bold tracking-tight text-[#0E1520] leading-[1.08]">
                         {{ __('messages.hero_headline') }}
                     </h1>
 
-                    <p class="text-base sm:text-lg text-[#0E1520]/70 max-w-xl font-normal leading-relaxed">
+                    <p class="text-xs sm:text-sm lg:text-base text-[#0E1520]/75 max-w-xl font-normal leading-relaxed">
                         {{ __('messages.hero_sub') }}
                     </p>
                 </div>
 
                 <!-- Action Button & Experience Pill -->
-                <div class="flex flex-wrap items-center gap-6 pt-2">
-                    <a href="{{ route('projects.index') }}" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0E1520] hover:bg-[#162132] text-white font-semibold text-sm transition-all transform hover:-translate-y-0.5 shadow-xl group">
+                <div class="flex flex-wrap items-center gap-3 sm:gap-4 lg:gap-5 pt-1">
+                    <a href="{{ route('projects.index') }}" class="inline-flex items-center gap-2.5 sm:gap-3 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#0E1520] hover:bg-[#162132] text-white font-semibold text-xs sm:text-sm transition-all transform hover:-translate-y-0.5 shadow-xl group">
                         <span>{{ __('messages.btn_explore_projects') }}</span>
-                        <span class="w-8 h-8 rounded-full bg-[#D4E845] text-[#0E1520] flex items-center justify-center font-bold text-xs group-hover:translate-x-1 transition-transform">
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#D4E845] text-[#0E1520] flex items-center justify-center font-bold text-xs group-hover:translate-x-1 transition-transform">
                             &rarr;
                         </span>
                     </a>
 
                     <!-- Experience Pill (40+ Years of experiences) -->
-                    <div class="flex items-center gap-4 bg-white px-5 py-3 rounded-full border border-[#0E1520]/10 shadow-sm">
+                    <div class="flex items-center gap-3 sm:gap-4 bg-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#0E1520]/10 shadow-sm">
                         <div class="flex items-center gap-2">
-                            <span class="font-serif text-3xl font-bold text-[#0E1520]">44+</span>
-                            <span class="text-[11px] font-semibold text-[#0E1520]/70 leading-tight uppercase tracking-wider">Years of<br>Excellence</span>
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-[#0E1520]">44+</span>
+                            <span class="text-[10px] sm:text-[11px] font-semibold text-[#0E1520]/70 leading-tight uppercase tracking-wider">Years of<br>Excellence</span>
                         </div>
-                        <div class="w-px h-8 bg-[#0E1520]/10"></div>
-                        <button type="button" onclick="openSiteVisitModal()" class="flex items-center gap-2 text-xs font-semibold text-[#0E1520] hover:text-[#C8A24B] transition-colors">
-                            <span class="w-7 h-7 rounded-full bg-[#FAF8F5] border border-[#0E1520]/15 flex items-center justify-center text-[10px]">▶</span>
+                        <div class="w-px h-7 bg-[#0E1520]/10"></div>
+                        <button type="button" onclick="openSiteVisitModal()" class="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-[#0E1520] hover:text-[#C8A24B] transition-colors">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#FAF8F5] border border-[#0E1520]/15 flex items-center justify-center text-[9px] sm:text-[10px]">▶</span>
                             <span>Tour Video</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Instant Search / Filter Bar -->
-                <form action="{{ route('projects.index') }}" method="GET" class="p-3 bg-white rounded-3xl border border-[#0E1520]/10 shadow-lg grid grid-cols-1 sm:grid-cols-4 gap-2">
-                    <div class="px-3 py-2">
+                <form action="{{ route('projects.index') }}" method="GET" class="p-2 sm:p-2.5 bg-white rounded-2xl sm:rounded-3xl border border-[#0E1520]/10 shadow-lg grid grid-cols-1 sm:grid-cols-4 gap-1.5 sm:gap-2">
+                    <div class="px-3 py-1.5 sm:py-2">
                         <label class="block text-[10px] font-mono text-[#0E1520]/50 uppercase tracking-wider">{{ __('messages.search_status') }}</label>
                         <select name="status" class="w-full text-xs font-bold text-[#0E1520] bg-transparent focus:outline-none cursor-pointer">
                             <option value="all">{{ __('messages.filter_all') }}</option>
@@ -84,7 +84,7 @@
                             <option value="completed">{{ __('messages.status_completed') }}</option>
                         </select>
                     </div>
-                    <div class="px-3 py-2 sm:border-l border-[#0E1520]/10">
+                    <div class="px-3 py-1.5 sm:py-2 sm:border-l border-[#0E1520]/10">
                         <label class="block text-[10px] font-mono text-[#0E1520]/50 uppercase tracking-wider">{{ __('messages.search_location') }}</label>
                         <select name="location" class="w-full text-xs font-bold text-[#0E1520] bg-transparent focus:outline-none cursor-pointer">
                             <option value="">All Jaipur Sectors</option>
@@ -94,7 +94,7 @@
                             <option value="Sikar Road">Sikar Road</option>
                         </select>
                     </div>
-                    <div class="px-3 py-2 sm:border-l border-[#0E1520]/10">
+                    <div class="px-3 py-1.5 sm:py-2 sm:border-l border-[#0E1520]/10">
                         <label class="block text-[10px] font-mono text-[#0E1520]/50 uppercase tracking-wider">{{ __('messages.search_type') }}</label>
                         <select name="type" class="w-full text-xs font-bold text-[#0E1520] bg-transparent focus:outline-none cursor-pointer">
                             <option value="all">All Properties</option>
@@ -103,7 +103,7 @@
                             <option value="apartment">Apartments</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full py-3 rounded-2xl bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] font-bold text-xs uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-1.5">
+                    <button type="submit" class="w-full py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-[#D4E845] hover:bg-[#c2d733] text-[#0E1520] font-bold text-xs uppercase tracking-wider transition-colors shadow flex items-center justify-center gap-1.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -119,7 +119,7 @@
 
 <!-- 2. SIGNATURE 3-CARD ARCHITECTURAL GRID ("We developed landmark real estate projects") -->
 <section class="py-20 bg-[#FAF8F5] border-t border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">{{ __('messages.sec_who_we_are') }}</span>
@@ -302,7 +302,7 @@
 
 <!-- 5. "WHAT MAKES US DIFFERENT" 6-CARD GRID -->
 <section class="py-24 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div class="space-y-3">
@@ -392,7 +392,7 @@
 
 <!-- 6. "DISCOVER LUXURY LIVING AT AN AFFORDABLE PRICE" (Living Blueprint CAD & Drone Aerial Section) -->
 <section class="py-24 bg-[#080E17] text-white relative">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Signature Developments Section Header with View Switcher (Matches CAD Blueprint & Dossiers) -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
@@ -508,7 +508,7 @@
 
 <!-- 7. FEATURED PROJECTS CAROUSEL / GRID -->
 <section class="py-24 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div class="space-y-3">
@@ -578,7 +578,7 @@
 
 <!-- 8. LEADERSHIP SECTION ("Global executive leadership") -->
 <section class="py-24 bg-[#0E1520] text-white border-t border-white/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Visionary Custodians</span>
@@ -644,7 +644,7 @@
 
 <!-- 9. PREFOOTER CTA BANNER ("Your dream home awaits") -->
 <section class="py-20 bg-[#FAF8F5] relative overflow-hidden">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="rounded-3xl bg-[#0E1520] p-10 sm:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             <!-- Decorative Accent Circle -->
             <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#D4E845]/10 pointer-events-none blur-3xl"></div>
