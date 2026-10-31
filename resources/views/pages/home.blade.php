@@ -264,7 +264,7 @@
 </section>
 
 <!-- 4. JAIPUR SKYLINE DARK STATS BANNER -->
-<section class="py-24 bg-[#0B1522] text-white relative overflow-hidden">
+<section id="stats" class="py-24 bg-[#0B1522] text-white relative overflow-hidden">
     <!-- Skyline silhouette overlay -->
     <div class="absolute inset-0 bg-cover bg-bottom opacity-15" style="background-image: url('/media/img/2021/04/Kedia-Nikunj-thumbnail-1920.webp');"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-[#0B1522]"></div>

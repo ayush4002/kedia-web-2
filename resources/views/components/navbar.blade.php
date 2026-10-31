@@ -2,7 +2,7 @@
     $currentLocale = app()->getLocale();
 @endphp
 
-<header class="sticky top-0 z-50 bg-[#FAF8F5]/98 backdrop-blur-md border-b border-[#0E1520]/10 transition-all duration-300">
+<header class="sticky top-0 z-50 bg-[#FAF8F5] border-b border-[#0E1520]/10 shadow-sm transition-all duration-300" style="background-color: #FAF8F5;">
     <div class="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between gap-4">
         
         <!-- Brand Logo & Heritage Tag -->
