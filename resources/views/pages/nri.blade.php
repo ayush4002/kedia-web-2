@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-16 bg-[#0E1520] text-white">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="max-w-3xl space-y-4">
             <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Global Investor Services</span>
             <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight">
@@ -24,7 +24,7 @@
 </section>
 
 <section class="py-20 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 space-y-16">
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-8 rounded-3xl bg-white border border-[#0E1520]/10 shadow-sm space-y-4">

@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-12 bg-[#FAF8F5]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12">
         
         <!-- Header & Breadcrumb -->
         <div class="text-center mb-10 space-y-2">

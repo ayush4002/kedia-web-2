@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-16 bg-[#FAF8F5]">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto px-6 sm:px-10 lg:px-12">
         
         <!-- Success Banner -->
         <div class="text-center mb-8 space-y-3">

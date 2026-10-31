@@ -2,7 +2,7 @@
     <!-- Faint jaali / blueprint grid overlay -->
     <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#D4E845 1px, transparent 1px); background-size: 28px 28px;"></div>
 
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
             
             <!-- Column 1 & 2: Brand & Corporate Statement -->

@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-16 bg-[#FAF8F5] border-b border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="max-w-3xl space-y-4">
             <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">Statutory Transparency</span>
             <h1 class="font-serif text-4xl sm:text-5xl font-bold text-[#0E1520] tracking-tight">
@@ -19,7 +19,7 @@
 </section>
 
 <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-sm leading-relaxed text-[#0E1520]/80 font-sans">
+    <div class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 space-y-12 text-sm leading-relaxed text-[#0E1520]/80 font-sans">
         
         <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#0E1520]/10 font-mono text-xs space-y-3">
             <h3 class="font-serif text-xl font-bold text-[#0E1520]">Key Statutory Identifiers</h3>

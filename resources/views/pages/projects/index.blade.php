@@ -6,7 +6,7 @@
 
 <!-- Header Banner -->
 <section class="pt-12 pb-10 bg-[#FAF8F5] border-b border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div class="space-y-2">
                 <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">Signature Catalog</span>
@@ -31,7 +31,7 @@
 
 <!-- Filter & Search Toolbar -->
 <section class="py-6 bg-white border-b border-[#0E1520]/10 sticky top-20 z-40 backdrop-blur-md bg-white/95">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <form method="GET" action="{{ route('projects.index') }}" class="flex flex-wrap items-center justify-between gap-4">
             
             <!-- Type Filters -->
@@ -72,7 +72,7 @@
 
 <!-- Projects Grid -->
 <section class="py-16 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         @if($projects->isEmpty())
             <div class="text-center py-24 bg-white rounded-3xl border border-[#0E1520]/10 p-8">

@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-12 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 space-y-10">
         
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#0E1520]/10">

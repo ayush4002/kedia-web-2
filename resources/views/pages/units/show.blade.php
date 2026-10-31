@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="py-10 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <!-- Breadcrumb & Shortlist Trigger -->
         <div class="flex items-center justify-between mb-8">

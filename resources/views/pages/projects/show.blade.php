@@ -6,7 +6,7 @@
 
 <!-- Project Hero Banner -->
 <section class="relative bg-[#0E1520] text-white pt-10 pb-16 overflow-hidden">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         
         <!-- Breadcrumb -->
         <div class="flex items-center gap-2 text-xs font-mono text-white/50 mb-6">
@@ -78,7 +78,7 @@
 
 <!-- Township Cadastral Blueprint Component -->
 <section class="py-16 bg-[#080E17]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="mb-8">
             <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Sector Blueprint</span>
             <h2 class="font-serif text-3xl font-bold text-white mt-1">Township Sector Layout &amp; Cadastral Plots</h2>
@@ -89,7 +89,7 @@
 
 <!-- Unit Inventory Product Listing (E-Commerce Style Table) -->
 <section id="inventorySection" class="py-20 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
@@ -197,7 +197,7 @@
 
 <!-- Amenities & Technical Specs Grid -->
 <section class="py-16 bg-white border-t border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-8 rounded-3xl bg-[#FAF8F5] border border-[#0E1520]/10">
                 <div class="text-xl font-bold font-serif mb-4 text-[#0E1520]">Sanctions &amp; Legal</div>

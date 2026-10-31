@@ -6,7 +6,7 @@
 
 <!-- 1. HERO SECTION (Spaciaz Split Architectural Arch Layout) -->
 <section class="relative min-h-[calc(100vh-5rem)] lg:h-[calc(100vh-5rem)] flex items-center py-6 lg:py-0 overflow-hidden bg-[#FAF8F5]">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
             
             <!-- Left Hero Arch Frame with Drone / Render Image -->
@@ -119,7 +119,7 @@
 
 <!-- 2. SIGNATURE 3-CARD ARCHITECTURAL GRID ("We developed landmark real estate projects") -->
 <section class="py-20 bg-[#FAF8F5] border-t border-[#0E1520]/10">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">{{ __('messages.sec_who_we_are') }}</span>
@@ -269,7 +269,7 @@
     <div class="absolute inset-0 bg-cover bg-bottom opacity-15" style="background-image: url('/media/img/2021/04/Kedia-Nikunj-thumbnail-1920.webp');"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-[#0B1522]"></div>
 
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center lg:text-left">
             
             <div class="space-y-2 border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-8">
@@ -302,7 +302,7 @@
 
 <!-- 5. "WHAT MAKES US DIFFERENT" 6-CARD GRID -->
 <section class="py-24 bg-[#FAF8F5]">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div class="space-y-3">
@@ -392,7 +392,7 @@
 
 <!-- 6. "DISCOVER LUXURY LIVING AT AN AFFORDABLE PRICE" (Living Blueprint CAD & Drone Aerial Section) -->
 <section class="py-24 bg-[#080E17] text-white relative">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <!-- Signature Developments Section Header with View Switcher (Matches CAD Blueprint & Dossiers) -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
@@ -508,7 +508,7 @@
 
 <!-- 7. FEATURED PROJECTS CAROUSEL / GRID -->
 <section class="py-24 bg-[#FAF8F5]">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div class="space-y-3">
@@ -578,7 +578,7 @@
 
 <!-- 8. LEADERSHIP SECTION ("Global executive leadership") -->
 <section class="py-24 bg-[#0E1520] text-white border-t border-white/10">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Visionary Custodians</span>
@@ -644,7 +644,7 @@
 
 <!-- 9. PREFOOTER CTA BANNER ("Your dream home awaits") -->
 <section class="py-20 bg-[#FAF8F5] relative overflow-hidden">
-    <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="rounded-3xl bg-[#0E1520] p-10 sm:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             <!-- Decorative Accent Circle -->
             <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#D4E845]/10 pointer-events-none blur-3xl"></div>

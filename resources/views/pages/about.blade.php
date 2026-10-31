@@ -6,7 +6,7 @@
 
 <!-- Hero Section -->
 <section class="py-16 bg-[#FAF8F5] border-b border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="max-w-3xl space-y-4">
             <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">Corporate Heritage · Est. 1980</span>
             <h1 class="font-serif text-4xl sm:text-6xl font-bold text-[#0E1520] tracking-tight">
@@ -21,7 +21,7 @@
 
 <!-- Vision & Mission Banner -->
 <section class="py-16 bg-white border-b border-[#0E1520]/10">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="p-8 sm:p-10 rounded-3xl bg-[#0E1520] text-white shadow-xl space-y-4">
                 <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Our Corporate Vision</span>
@@ -44,7 +44,7 @@
 
 <!-- Leadership Section -->
 <section class="py-20 bg-[#FAF8F5]">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 space-y-16">
         
         <div class="text-center max-w-2xl mx-auto space-y-2">
             <span class="text-xs font-mono uppercase tracking-widest text-[#0E1520]/60">Executive Directorate</span>
@@ -112,7 +112,7 @@
 
 <!-- Heritage Timeline (1980 to Today) -->
 <section class="py-20 bg-[#0E1520] text-white">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 space-y-12">
         
         <div class="text-center max-w-xl mx-auto space-y-2">
             <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Historical Track Record</span>
