@@ -192,45 +192,45 @@
 
 <!-- 3. INFINITE MARQUEE TICKER (Clean Horizontal Layout, No Vertical Drift) -->
 <section class="py-6 bg-white border-y border-[#0E1520]/10 overflow-hidden">
-    <div class="relative w-full">
-        <div class="animate-marquee flex items-center gap-12 whitespace-nowrap text-sm font-medium text-[#0E1520]">
+    <div class="relative w-full overflow-hidden flex flex-nowrap">
+        <div class="animate-marquee flex flex-nowrap items-center gap-12 whitespace-nowrap text-sm font-medium text-[#0E1520]">
             
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Master Planned Townships</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-6-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Comprehensive Amenities</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-7-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">100% JDA Approved</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-8-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Vastu &amp; Eco Harmony</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-9-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">4+ Decades of Trust (Est. 1980)</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-2-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Prompt RERA Handover</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-3-600.webp" class="w-full h-full object-cover">
@@ -238,21 +238,21 @@
             </div>
 
             <!-- Repeated set for seamless loop -->
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Master Planned Townships</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-6-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">Comprehensive Amenities</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-7-600.webp" class="w-full h-full object-cover">
                 </span>
             </div>
 
-            <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 flex items-center gap-3 whitespace-nowrap">
                 <span class="font-bold tracking-tight">100% JDA Approved</span>
                 <span class="w-10 h-6 rounded-full overflow-hidden inline-block border border-[#0E1520]/20 flex-shrink-0">
                     <img src="/media/img/2021/04/Kedia-Nikunj-8-600.webp" class="w-full h-full object-cover">
@@ -394,18 +394,114 @@
 <section class="py-24 bg-[#080E17] text-white relative">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Signature Developments</span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-                Discover luxury living at an affordable price
-            </h2>
-            <p class="text-sm text-white/60">
-                Browse live property inventory like a boutique catalog. Check real-time availability, floor plans, and book online with test token.
-            </p>
+        <!-- Signature Developments Section Header with View Switcher (Matches CAD Blueprint & Dossiers) -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+            <div class="space-y-3 max-w-2xl">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#D4E845]">Signature Developments</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                    Discover luxury living at an affordable price
+                </h2>
+                <p class="text-sm text-white/60">
+                    Browse live property inventory like a boutique catalog. Check real-time availability, floor plans, and book online with test token.
+                </p>
+            </div>
+
+            <!-- View Switcher Pills: Project Dossiers vs Living Blueprint Map -->
+            <div class="inline-flex p-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono flex-shrink-0">
+                <button type="button" id="btnTabDossiers" onclick="toggleCatalogView('dossiers')" class="px-5 py-2.5 rounded-full text-white/70 hover:text-white transition-all font-semibold">
+                    Project Dossiers
+                </button>
+                <button type="button" id="btnTabBlueprint" onclick="toggleCatalogView('blueprint')" class="px-5 py-2.5 rounded-full bg-[#D4E845] text-[#0E1520] font-bold shadow transition-all flex items-center gap-2">
+                    <span>Living Blueprint Map</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                </button>
+            </div>
         </div>
 
-        <!-- The Living Blueprint Interactive Component -->
-        @include('components.living-blueprint')
+        <!-- View 1: The Living Blueprint Interactive Cadastral Layout -->
+        <div id="catalogBlueprintView" class="transition-all duration-300">
+            @include('components.living-blueprint')
+        </div>
+
+        <!-- View 2: Project Dossiers Live Unit Boutique Catalog -->
+        <div id="catalogDossiersView" class="hidden transition-all duration-300">
+            <div class="rounded-3xl bg-[#09111C] border border-[#D4E845]/20 p-6 sm:p-10 shadow-2xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-white/10">
+                    <div>
+                        <div class="text-xs font-mono tracking-widest uppercase text-[#D4E845] mb-1">
+                            Live Master Inventory · Verified JDA Titles
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-white">Curated Residence Dossiers</h3>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <span class="px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">120 Total Units</span>
+                        <span class="px-3 py-1.5 rounded-full bg-[#D4E845]/20 text-[#D4E845] border border-[#D4E845]/30">Instant Booking ₹1L</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
+                    @foreach($units->take(6) as $u)
+                        <div class="p-6 rounded-2xl bg-[#0E1724] border border-white/10 hover:border-[#D4E845]/50 transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-white/10 text-white font-bold">{{ $u->unit_code }}</span>
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase {{ $u->status === 'available' ? 'bg-emerald-500/20 text-emerald-400' : ($u->status === 'on_hold' ? 'bg-amber-500/20 text-amber-300' : 'bg-slate-700 text-slate-300') }}">
+                                        {{ ucfirst(str_replace('_', ' ', $u->status)) }}
+                                    </span>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white mb-1">{{ $u->title }}</h4>
+                                <div class="text-xs text-white/50 mb-4">{{ $u->project_name }} · {{ $u->facing }} Facing</div>
+
+                                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-white/70 py-3 border-y border-white/5 mb-4">
+                                    <div>Area: <span class="text-white font-bold">{{ $u->area_sqft }} sq.ft</span></div>
+                                    <div>Plot: <span class="text-white font-bold">{{ $u->area_sqyd }} sq.yd</span></div>
+                                    <div>Bedrooms: <span class="text-white font-bold">{{ $u->bedrooms }} BHK</span></div>
+                                    <div>Floor: <span class="text-white font-bold">{{ $u->floor_level }}</span></div>
+                                </div>
+                            </div>
+
+                            <div class="pt-2 flex items-center justify-between">
+                                <div>
+                                    <div class="text-[10px] font-mono text-white/50 uppercase">All-Inclusive</div>
+                                    <div class="font-serif text-lg font-bold text-[#D4E845]">{{ $u->price_formatted }}</div>
+                                </div>
+                                <a href="{{ route('units.show', $u->unit_code) }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#D4E845] hover:text-[#0E1520] text-xs font-bold font-mono transition-colors">
+                                    View Dossier &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="pt-8 text-center border-t border-white/10 mt-8">
+                    <a href="{{ route('projects.index') }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#D4E845] text-[#0E1520] font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#c2d733] transition-all">
+                        <span>Explore All 120 Units in Live Inventory Catalog</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleCatalogView(view) {
+                const blueprintView = document.getElementById('catalogBlueprintView');
+                const dossiersView = document.getElementById('catalogDossiersView');
+                const btnBlueprint = document.getElementById('btnTabBlueprint');
+                const btnDossiers = document.getElementById('btnTabDossiers');
+
+                if (view === 'blueprint') {
+                    blueprintView.classList.remove('hidden');
+                    dossiersView.classList.add('hidden');
+                    btnBlueprint.className = 'px-5 py-2.5 rounded-full bg-[#D4E845] text-[#0E1520] font-bold shadow transition-all flex items-center gap-2';
+                    btnDossiers.className = 'px-5 py-2.5 rounded-full text-white/70 hover:text-white transition-all font-semibold';
+                } else {
+                    blueprintView.classList.add('hidden');
+                    dossiersView.classList.remove('hidden');
+                    btnDossiers.className = 'px-5 py-2.5 rounded-full bg-[#D4E845] text-[#0E1520] font-bold shadow transition-all font-semibold';
+                    btnBlueprint.className = 'px-5 py-2.5 rounded-full text-white/70 hover:text-white transition-all flex items-center gap-2';
+                }
+            }
+        </script>
 
     </div>
 </section>

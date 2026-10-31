@@ -46,4 +46,30 @@ class Booking extends Model
     {
         return $this->belongsTo(Project::class, 'project_slug', 'slug');
     }
+
+    // Accessors for view compatibility
+    public function getTokenAmountAttribute(): int
+    {
+        return (int) $this->token_amount_paid;
+    }
+
+    public function getTotalAmountAttribute(): int
+    {
+        return (int) $this->total_unit_amount;
+    }
+
+    public function getBookingStatusAttribute(): string
+    {
+        return $this->status ?? 'confirmed';
+    }
+
+    public function getTransactionRefAttribute(): ?string
+    {
+        return $this->payment_reference;
+    }
+
+    public function getPaymentStatusAttribute(): string
+    {
+        return $this->token_amount_paid > 0 ? 'paid' : 'pending';
+    }
 }

@@ -44,7 +44,7 @@ class PageController extends Controller
      */
     public function gallery()
     {
-        $projects = Project::select('id', 'title', 'slug', 'hero_image', 'gallery', 'location')->get();
+        $projects = Project::all();
         return view('pages.gallery', compact('projects'));
     }
 

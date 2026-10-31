@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->string('unit_code')->unique();
+            $table->string('unit_code');
             $table->string('unit_number');
             $table->string('project_slug');
             $table->string('project_name');
@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('possession')->nullable();
             $table->timestamps();
 
+            $table->unique(['project_slug', 'unit_code']);
             $table->index('project_slug');
             $table->index('status');
         });
